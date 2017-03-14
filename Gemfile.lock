@@ -1,11 +1,13 @@
 PATH
   remote: ../bloc_works
   specs:
-    bloc_works (0.0.1)
+    bloc_works (0.0.4)
+      erubis (~> 2.7)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    erubis (2.7.0)
 
 PLATFORMS
   ruby
