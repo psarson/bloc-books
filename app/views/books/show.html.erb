@@ -1,0 +1,12 @@
+<h1> BOOKS </h1>
+
+<ul>
+  <% books.each_with_index do |book|  %>
+    <li>
+       <a href="/books/edit?id=<%= book.book_id %>"><%= book.title %></a> -
+       <a href="/books/delete?id=<%= book.book_id %>"> Delete</a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/books/new">Create new</a>
