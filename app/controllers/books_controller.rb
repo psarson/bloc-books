@@ -1,4 +1,5 @@
 require_relative '../models/library'
+require_relative '../models/library_mapper'
 require 'rack'
 
 class BooksController < BlocWorks::Controller
@@ -31,37 +32,62 @@ class BooksController < BlocWorks::Controller
   end
 
   def show
-    map = Library.new
-    @books = map.find
+    library_id = @request.GET.values[0].to_i
+    map = LibraryMapper.new
+    library = map.find_one(library_id)
+    books = library.find(library_id)
+    @books = books
     render :show, books: @books
   end
 
   def edit
-    map = Library.new
-    id = @request.GET.values[0].to_i
-    puts id
-    @book = map.find_one(id)
+    params = @request.params.values.join.split(",")
+
+    library_id = params[1].to_i
+    book_id = params[0].to_i
+
+    map = LibraryMapper.new
+
+    library = map.find_one(library_id)
+    @book = library.find_one(book_id, library_id)
+    puts "#{@book}"
     render :edit, book: @book
   end
 
   def update
-    map = Library.new
+    @params = @request.params.values
 
-    id = @request.GET.values[0].to_i
-    new_title = @request.params.values[1].values[0]
-    new_author = @request.params.values[1].values[1]
+    ids = @params[0]
 
-    map.update(id, new_title, new_author)
+    #ids is actually a string "book_id, library_id"
+    library_id = ids[2].to_i
+    book_id =  ids[0].to_i
 
-    render :update
+    title = @params[1].values[0]
+    author = @params[1].values[1]
+
+    map = LibraryMapper.new
+    library = map.find_one(library_id)
+
+    library.update(book_id, library_id, title, author)
+
+    @return_id = @request.params.values[0]
+    render :update, id: @return_id[2]
   end
 
   def delete
-    map = Library.new
+    @params = @request.params.values
 
-    id = @request.GET.values[0].to_i
+    ids = @params[0]
 
-    map.delete(id)
+    #ids is actually a string "book_id, library_id"
+    library_id = ids[2].to_i
+    book_id =  ids[0].to_i
+
+    map = LibraryMapper.new
+    library = map.find_one(library_id)
+
+    library.delete(book_id, library_id)
 
     render :delete
   end

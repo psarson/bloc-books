@@ -1,7 +1,7 @@
 <h1>Edit Page</h1>
 
 <form action="/books/update">
-  <input type="hidden" name="id" value="<%= book.book_id %>"/>
+  <input type="hidden" name="id" value="<%= book.book_id %>,<%=book.id%>"/>
   <input type="text" name="book[title]" value="<%= book.title %>" />
   <textarea rows="10" cols="30" name="book[author]" id=""><%= book.author %></textarea>
   <button type="submit">Update</button>

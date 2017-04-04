@@ -3,7 +3,7 @@
 <ul>
   <% library.each do |lib|  %>
     <li>
-       <h3><%= lib.name %><h3> -
+       <a href="/books/show?id=<%= lib.id %>"><%= lib.name %><h3> -
        <a href="/library/edit?id=<%= lib.id %>"> Edit </a> -
        <a href="/library/delete?id=<%= lib.id %>"> Delete</a> -
        <a href="/books/welcome"> Books! </a>

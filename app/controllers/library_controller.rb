@@ -23,11 +23,15 @@ class LibraryController < BlocWorks::Controller
   end
 
   def edit
-    @map = LibraryMapper.new
+    map = LibraryMapper.new
     id = @request.params.values[0]
-    puts id
-    puts @map.find_one(id)
-    render :edit
+    @library = map.find_one(id)
+    render :edit, library: @library
+  end
+
+  def update
+    @params = @request.params
+    render :update, params: @params
   end
 
 

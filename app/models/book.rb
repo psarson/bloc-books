@@ -1,7 +1,7 @@
 require 'bloc_works' #does this need to here?
 
 class Book
-  attr_accessor :title, :author, :book_id
+  attr_accessor :title, :author, :book_id, :id
 
   def initialize(title, author, book_id=0, id=0)
     @title = title

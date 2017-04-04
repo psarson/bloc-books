@@ -1,10 +1,10 @@
 Book Title,Imprint,1,1
 Time and Methods in Environmental Interfaces Modelling,Elsevier,2,1
-New Aspects of Meat Quality,Woodhead Publishing,3,1
+A,B,3,1
 Biology and Engineering of Stem Cell Niches,Academic Press,4,1
-Nitric Oxide Donors,Academic Press,5,1
+Harry Potter,JK Rowling,5,1
 Purification of Laboratory Chemicals (Eighth Edition),Butterworth-Heinemann,1,2
 Well Test Analysis for Multilayered Reservoirs with Formation Crossflow,Gulf Professional Publishing,2,2
 Microforming Technology,Academic Press,3,2
-"Materials for a Healthy, Ecological and Sustainable Built Environment",Woodhead Publishing,4,2
+"Materials for a Healthy,Ecological and Sustainable Built Environment",Woodhead Publishing,4,2
 Solidification and Solid-State Transformations of Metals and Alloys,Elsevier,5,2

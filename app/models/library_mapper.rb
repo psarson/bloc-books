@@ -21,7 +21,7 @@ class LibraryMapper
 
   def find_one(id)
     find_all.each do |object|
-      if object.id == id
+      if id.to_i == object.id.to_i
         @library = object
       end
     end
