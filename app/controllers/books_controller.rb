@@ -1,3 +1,5 @@
+require 'pry'
+
 class BooksController < BlocWorks::Controller
   def welcome
     render :welcome, book: "Eloquent Ruby"
@@ -8,6 +10,7 @@ class BooksController < BlocWorks::Controller
    end
 
    def show
+     binding.pry
      book = Book.find(params['id'])
      render :show, book: book
    end
